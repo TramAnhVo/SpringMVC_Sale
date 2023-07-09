@@ -5,8 +5,12 @@
 package com.vttanh.sale;
 
 import com.vttanh.pojo.Category;
+import com.vttanh.pojo.OrderDetail;
+import com.vttanh.pojo.ProdTag;
 import com.vttanh.pojo.Product;
+import com.vttanh.pojo.SaleOrder;
 import com.vttanh.pojo.Tag;
+import com.vttanh.pojo.User;
 import java.io.ObjectInputFilter;
 import java.util.Properties;
 import org.hibernate.SessionFactory;
@@ -44,8 +48,14 @@ public class HibernateUtils {
         conf.addAnnotatedClass(Category.class);
         conf.addAnnotatedClass(Product.class);
         conf.addAnnotatedClass(Tag.class);
+        conf.addAnnotatedClass(OrderDetail.class);
+        conf.addAnnotatedClass(SaleOrder.class);
+        conf.addAnnotatedClass(User.class);
+        conf.addAnnotatedClass(ProdTag.class);
+        
         
         ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder().applySettings(conf.getProperties()).build();
         factory = conf.buildSessionFactory(serviceRegistry);
     }
+    
 }
